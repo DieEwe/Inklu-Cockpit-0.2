@@ -15,7 +15,7 @@ interface LearningModulesCardProps {
 
 export const LearningModulesCard = ({ modules }: LearningModulesCardProps) => {
   return (
-    <div className="space-y-4 max-h-60 overflow-y-auto pr-1">
+    <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1">
       {modules.map((module, index) => (
         <div key={index} className="p-3 border rounded-lg hover:bg-muted/30 transition-all">
           <div className="flex justify-between items-start mb-2">

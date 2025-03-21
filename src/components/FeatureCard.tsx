@@ -19,7 +19,7 @@ export const FeatureCard = ({
   children
 }: FeatureCardProps) => {
   return (
-    <div className="inklu-card group">
+    <div className="inklu-card group min-h-[420px]">
       <div className="flex items-start justify-between">
         <div className="rounded-full p-2 bg-primary/10 text-primary">
           {icon}
@@ -33,7 +33,7 @@ export const FeatureCard = ({
       </div>
       <h3 className="mt-4 text-lg font-medium">{title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-      {children && <div className="mt-4">{children}</div>}
+      {children && <div className="mt-4 flex-grow">{children}</div>}
     </div>
   );
 };
