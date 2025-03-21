@@ -254,23 +254,14 @@ export const FeatureCardsSection = () => {
         <LearningModulesCard modules={mockLearningModules} />
       </FeatureCard>
       
-      {/* Second Row */}
-      <FeatureCard
-        title={featureCardsData[3].title}
-        description={featureCardsData[3].description}
-        metric={featureCardsData[3].metric}
-        metricLabel={featureCardsData[3].metricLabel}
-        icon={<CalendarCheck className="h-5 w-5" />}
-      >
-        <EventsCard events={mockEvents} />
-      </FeatureCard>
-      
+      {/* Second Row - Accessibility Tools and External Training */}
       <FeatureCard
         title={featureCardsData[4].title}
         description={featureCardsData[4].description}
         metric={featureCardsData[4].metric}
         metricLabel={featureCardsData[4].metricLabel}
         icon={<Accessibility className="h-5 w-5" />}
+        className="md:col-span-1"
       >
         <AccessibilityToolsCard tools={mockAccessibilityTools} />
       </FeatureCard>
@@ -281,8 +272,22 @@ export const FeatureCardsSection = () => {
         metric={featureCardsData[5].metric}
         metricLabel={featureCardsData[5].metricLabel}
         icon={<GraduationCap className="h-5 w-5" />}
+        className="md:col-span-2"
       >
         <ExternalTrainingCard trainings={mockExternalTrainings} />
+      </FeatureCard>
+      
+      {/* Third Row - Events Card (full width) */}
+      <FeatureCard
+        title={featureCardsData[3].title}
+        description={featureCardsData[3].description}
+        metric={featureCardsData[3].metric}
+        metricLabel={featureCardsData[3].metricLabel}
+        icon={<CalendarCheck className="h-5 w-5" />}
+        fullWidth={true}
+        className="min-h-[300px]"
+      >
+        <EventsCard events={mockEvents} />
       </FeatureCard>
     </div>
   );

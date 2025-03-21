@@ -8,6 +8,8 @@ interface FeatureCardProps {
   metric?: string;
   metricLabel?: string;
   children?: ReactNode;
+  className?: string;
+  fullWidth?: boolean;
 }
 
 export const FeatureCard = ({ 
@@ -16,10 +18,12 @@ export const FeatureCard = ({
   description, 
   metric, 
   metricLabel,
-  children
+  children,
+  className = "",
+  fullWidth = false
 }: FeatureCardProps) => {
   return (
-    <div className="inklu-card group min-h-[420px]">
+    <div className={`inklu-card group min-h-[420px] ${fullWidth ? 'col-span-full' : ''} ${className}`}>
       <div className="flex items-start justify-between">
         <div className="rounded-full p-2 bg-primary/10 text-primary">
           {icon}

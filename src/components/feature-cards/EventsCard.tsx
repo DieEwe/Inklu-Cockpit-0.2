@@ -17,12 +17,30 @@ interface EventsCardProps {
 
 export const EventsCard = ({ events }: EventsCardProps) => {
   return (
-    <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[300px] overflow-y-auto pr-1">
       {events.map((event, index) => (
-        <div key={index} className="p-3 border rounded-lg hover:bg-muted/30 transition-all">
+        <div 
+          key={index} 
+          className={`p-4 border rounded-lg hover:bg-muted/30 transition-all ${
+            event.type === "online" 
+              ? "border-blue-200 dark:border-blue-900" 
+              : event.type === "hybrid" 
+                ? "border-purple-200 dark:border-purple-900" 
+                : "border-gray-200 dark:border-gray-800"
+          }`}
+        >
           <div className="flex justify-between items-start mb-2">
             <h4 className="font-medium text-sm">{event.title}</h4>
-            <Badge variant={event.type === "online" ? "secondary" : event.type === "hybrid" ? "default" : "outline"}>
+            <Badge 
+              variant={event.type === "online" ? "secondary" : event.type === "hybrid" ? "default" : "outline"}
+              className={
+                event.type === "online" 
+                  ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100" 
+                  : event.type === "hybrid" 
+                    ? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100"
+                    : ""
+              }
+            >
               {event.type === "online" ? "Online" : event.type === "hybrid" ? "Hybrid" : "Local"}
             </Badge>
           </div>

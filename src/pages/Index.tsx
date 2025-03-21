@@ -8,9 +8,9 @@ import { StrategySection } from "@/components/dashboard/StrategySection";
 import { LeadershipSection } from "@/components/dashboard/LeadershipSection";
 import { AccessibilitySection } from "@/components/dashboard/AccessibilitySection";
 import { FeatureCardsSection } from "@/components/dashboard/FeatureCardsSection";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChevronDown } from "lucide-react";
+import { TabsContent } from "@/components/ui/tabs";
 import { CircularProgress } from "@/components/CircularProgress";
+import { useState } from "react";
 import { 
   communicationData, 
   processData, 
@@ -23,13 +23,16 @@ const Index = () => {
   const { language } = useTheme();
   const t = translations[language];
   
+  // State to track the active tab
+  const [activeTab, setActiveTab] = useState("communication");
+  
   // Progress indicators data
   const categoryScores = [
-    { score: Math.round(communicationData.overallScore), color: "#D946EF", name: t.communication }, // Pink
-    { score: Math.round(processData.overallScore), color: "#9b87f5", name: t.process }, // Purple
-    { score: Math.round(strategyData.overallScore), color: "#0EA5E9", name: t.strategy }, // Blue
-    { score: Math.round(leadershipData.overallScore), color: "#10B981", name: t.leadership }, // Green
-    { score: Math.round(accessibilityData.overallScore), color: "#F97316", name: t.accessibility }, // Orange
+    { id: "communication", score: Math.round(communicationData.overallScore), color: "#D946EF", name: t.communication }, // Pink
+    { id: "process", score: Math.round(processData.overallScore), color: "#9b87f5", name: t.process }, // Purple
+    { id: "strategy", score: Math.round(strategyData.overallScore), color: "#0EA5E9", name: t.strategy }, // Blue
+    { id: "leadership", score: Math.round(leadershipData.overallScore), color: "#10B981", name: t.leadership }, // Green
+    { id: "accessibility", score: Math.round(accessibilityData.overallScore), color: "#F97316", name: t.accessibility }, // Orange
   ];
   
   return (
@@ -47,65 +50,43 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Category Progress Indicators */}
-          <div className="flex justify-center mb-6 gap-4 md:gap-6 overflow-x-auto py-4 animate-fade-in">
-            {categoryScores.map((category, index) => (
+          {/* Clickable Category Progress Indicators */}
+          <div className="flex justify-center mb-8 gap-4 md:gap-6 py-4 animate-fade-in">
+            {categoryScores.map((category) => (
               <CircularProgress 
-                key={index} 
+                key={category.id} 
                 percentage={category.score} 
                 color={category.color} 
                 label={category.name}
-                size={90}
+                size={100}
+                onClick={() => setActiveTab(category.id)}
+                active={activeTab === category.id}
               />
             ))}
           </div>
           
-          <Tabs defaultValue="communication" className="w-full animate-fade-in">
-            <div className="flex justify-center mb-6">
-              <TabsList className="p-1 bg-muted/80 backdrop-blur-sm rounded-full text-base">
-                <TabsTrigger value="communication" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
-                  {t.communication}
-                  <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
-                </TabsTrigger>
-                <TabsTrigger value="process" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
-                  {t.process}
-                  <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
-                </TabsTrigger>
-                <TabsTrigger value="strategy" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
-                  {t.strategy}
-                  <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
-                </TabsTrigger>
-                <TabsTrigger value="leadership" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
-                  {t.leadership}
-                  <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
-                </TabsTrigger>
-                <TabsTrigger value="accessibility" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
-                  {t.accessibility}
-                  <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="communication" className="animate-slide-up">
+          {/* Content based on selected tab */}
+          <div className="animate-fade-in">
+            <div className={activeTab === "communication" ? "block" : "hidden"}>
               <CommunicationSection />
-            </TabsContent>
+            </div>
             
-            <TabsContent value="process" className="animate-slide-up">
+            <div className={activeTab === "process" ? "block" : "hidden"}>
               <ProcessSection />
-            </TabsContent>
+            </div>
             
-            <TabsContent value="strategy" className="animate-slide-up">
+            <div className={activeTab === "strategy" ? "block" : "hidden"}>
               <StrategySection />
-            </TabsContent>
+            </div>
             
-            <TabsContent value="leadership" className="animate-slide-up">
+            <div className={activeTab === "leadership" ? "block" : "hidden"}>
               <LeadershipSection />
-            </TabsContent>
+            </div>
             
-            <TabsContent value="accessibility" className="animate-slide-up">
+            <div className={activeTab === "accessibility" ? "block" : "hidden"}>
               <AccessibilitySection />
-            </TabsContent>
-          </Tabs>
+            </div>
+          </div>
           
           <div className="mt-12 space-y-6 animate-fade-in">
             <h2 className="text-2xl font-semibold text-center mb-6">
