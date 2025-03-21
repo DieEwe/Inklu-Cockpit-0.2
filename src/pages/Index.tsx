@@ -10,10 +10,27 @@ import { AccessibilitySection } from "@/components/dashboard/AccessibilitySectio
 import { FeatureCardsSection } from "@/components/dashboard/FeatureCardsSection";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronDown } from "lucide-react";
+import { CircularProgress } from "@/components/CircularProgress";
+import { 
+  communicationData, 
+  processData, 
+  strategyData, 
+  leadershipData, 
+  accessibilityData 
+} from "@/utils/mockData";
 
 const Index = () => {
   const { language } = useTheme();
   const t = translations[language];
+  
+  // Progress indicators data
+  const categoryScores = [
+    { score: Math.round(communicationData.overallScore), color: "#D946EF", name: t.communication }, // Pink
+    { score: Math.round(processData.overallScore), color: "#9b87f5", name: t.process }, // Purple
+    { score: Math.round(strategyData.overallScore), color: "#0EA5E9", name: t.strategy }, // Blue
+    { score: Math.round(leadershipData.overallScore), color: "#10B981", name: t.leadership }, // Green
+    { score: Math.round(accessibilityData.overallScore), color: "#F97316", name: t.accessibility }, // Orange
+  ];
   
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
@@ -30,26 +47,39 @@ const Index = () => {
             </div>
           </div>
           
+          {/* Category Progress Indicators */}
+          <div className="flex justify-center mb-6 gap-4 md:gap-6 overflow-x-auto py-4 animate-fade-in">
+            {categoryScores.map((category, index) => (
+              <CircularProgress 
+                key={index} 
+                percentage={category.score} 
+                color={category.color} 
+                label={category.name}
+                size={90}
+              />
+            ))}
+          </div>
+          
           <Tabs defaultValue="communication" className="w-full animate-fade-in">
             <div className="flex justify-center mb-6">
-              <TabsList className="p-1 bg-muted/80 backdrop-blur-sm rounded-full">
-                <TabsTrigger value="communication" className="relative rounded-full data-[state=active]:shadow-sm">
+              <TabsList className="p-1 bg-muted/80 backdrop-blur-sm rounded-full text-base">
+                <TabsTrigger value="communication" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
                   {t.communication}
                   <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
                 </TabsTrigger>
-                <TabsTrigger value="process" className="relative rounded-full data-[state=active]:shadow-sm">
+                <TabsTrigger value="process" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
                   {t.process}
                   <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
                 </TabsTrigger>
-                <TabsTrigger value="strategy" className="relative rounded-full data-[state=active]:shadow-sm">
+                <TabsTrigger value="strategy" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
                   {t.strategy}
                   <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
                 </TabsTrigger>
-                <TabsTrigger value="leadership" className="relative rounded-full data-[state=active]:shadow-sm">
+                <TabsTrigger value="leadership" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
                   {t.leadership}
                   <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
                 </TabsTrigger>
-                <TabsTrigger value="accessibility" className="relative rounded-full data-[state=active]:shadow-sm">
+                <TabsTrigger value="accessibility" className="relative rounded-full py-2.5 px-4 data-[state=active]:shadow-sm">
                   {t.accessibility}
                   <ChevronDown className="h-3 w-3 ml-1 opacity-60" />
                 </TabsTrigger>

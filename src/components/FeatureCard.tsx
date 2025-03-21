@@ -7,6 +7,7 @@ interface FeatureCardProps {
   description: string;
   metric?: string;
   metricLabel?: string;
+  children?: ReactNode;
 }
 
 export const FeatureCard = ({ 
@@ -14,7 +15,8 @@ export const FeatureCard = ({
   icon, 
   description, 
   metric, 
-  metricLabel 
+  metricLabel,
+  children
 }: FeatureCardProps) => {
   return (
     <div className="inklu-card group">
@@ -31,6 +33,7 @@ export const FeatureCard = ({
       </div>
       <h3 className="mt-4 text-lg font-medium">{title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+      {children && <div className="mt-4">{children}</div>}
     </div>
   );
 };
