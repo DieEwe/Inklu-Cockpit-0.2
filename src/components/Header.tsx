@@ -2,41 +2,51 @@
 import { Moon, Sun, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
+import { translations } from "@/utils/mockData";
 
-export const Header = () => {
+interface HeaderProps {
+  floating?: boolean;
+}
+
+export const Header = ({ floating = false }: HeaderProps) => {
   const { theme, language, toggleTheme, toggleLanguage } = useTheme();
+  const t = translations[language];
   
   return (
-    <header className="py-4 px-6 flex items-center justify-between mb-4 animate-fade-in">
-      <div className="flex items-center space-x-2">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-inklu-blue via-inklu-purple to-inklu-peach bg-clip-text text-transparent">
-          Inklu-Cockpit
-        </h1>
-        <div className="flex h-6 items-center space-x-1 rounded-full bg-muted px-2 text-xs font-medium">
-          <span>{new Date().toLocaleDateString()}</span>
+    <header className={`flex items-center justify-between ${floating ? 'px-2 py-2' : 'py-4 px-6 mb-4 animate-fade-in'}`}>
+      {!floating && (
+        <div className="flex items-center space-x-2">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-inklu-blue via-inklu-purple to-inklu-peach bg-clip-text text-transparent">
+            Inklu-Cockpit
+          </h1>
+          <div className="flex h-6 items-center space-x-1 rounded-full bg-muted px-2 text-xs font-medium">
+            <span>{new Date().toLocaleDateString()}</span>
+          </div>
         </div>
-      </div>
+      )}
       
-      <div className="flex items-center space-x-2">
+      <div className={`flex items-center ${floating ? 'space-x-1 flex-col space-y-2' : 'space-x-2'}`}>
         <Button 
-          variant="outline" 
-          size="icon" 
+          variant={floating ? "outline" : "outline"}
+          size={floating ? "sm" : "icon"} 
           onClick={toggleLanguage}
-          className="rounded-full"
-          aria-label="Toggle language"
+          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full'}`}
+          aria-label={t.toggleLanguage}
         >
           <Languages className="h-4 w-4" />
-          <span className="ml-2 hidden sm:inline-block">
-            {language === 'en' ? 'EN' : 'DE'}
-          </span>
+          {!floating && (
+            <span className="ml-2 hidden sm:inline-block">
+              {language === 'en' ? 'EN' : 'DE'}
+            </span>
+          )}
         </Button>
         
         <Button 
-          variant="outline" 
-          size="icon" 
+          variant={floating ? "outline" : "outline"}
+          size={floating ? "sm" : "icon"} 
           onClick={toggleTheme}
-          className="rounded-full"
-          aria-label="Toggle theme"
+          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full'}`}
+          aria-label={t.toggleTheme}
         >
           {theme === 'light' ? (
             <Moon className="h-4 w-4" />
