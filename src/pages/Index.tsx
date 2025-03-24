@@ -18,6 +18,7 @@ import {
   leadershipData, 
   accessibilityData 
 } from "@/utils/mockData";
+import { EventsFeed } from "@/components/EventsFeed";
 
 const Index = () => {
   const { language } = useTheme();
@@ -121,6 +122,16 @@ const Index = () => {
               </span>
             </h2>
             <FeatureCardsSection />
+          </div>
+          
+          {/* Events Feed */}
+          <div className="mt-12 space-y-6 animate-fade-in">
+            <h2 className="text-2xl font-semibold text-center mb-6">
+              <span className="bg-gradient-to-r from-inklu-blue to-inklu-purple bg-clip-text text-transparent">
+                {t.events}
+              </span>
+            </h2>
+            <EventsFeed />
           </div>
         </main>
       </div>

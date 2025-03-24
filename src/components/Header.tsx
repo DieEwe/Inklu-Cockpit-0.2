@@ -20,7 +20,7 @@ export const Header = ({ floating = false }: HeaderProps) => {
             Inklu-Cockpit
           </h1>
           <div className="flex h-6 items-center space-x-1 rounded-full bg-muted px-2 text-xs font-medium">
-            <span>{new Date().toLocaleDateString()}</span>
+            <span>{new Date().toLocaleDateString(language === 'en' ? 'en-US' : 'de-DE')}</span>
           </div>
         </div>
       )}
@@ -30,7 +30,7 @@ export const Header = ({ floating = false }: HeaderProps) => {
           variant={floating ? "outline" : "outline"}
           size={floating ? "sm" : "icon"} 
           onClick={toggleLanguage}
-          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full'}`}
+          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full bg-gradient-to-r from-inklu-blue/10 to-inklu-purple/10 hover:from-inklu-blue/20 hover:to-inklu-purple/20'}`}
           aria-label={t.toggleLanguage}
         >
           <Languages className="h-4 w-4" />
@@ -45,7 +45,7 @@ export const Header = ({ floating = false }: HeaderProps) => {
           variant={floating ? "outline" : "outline"}
           size={floating ? "sm" : "icon"} 
           onClick={toggleTheme}
-          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full'}`}
+          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full bg-gradient-to-r from-inklu-purple/10 to-inklu-peach/10 hover:from-inklu-purple/20 hover:to-inklu-peach/20'}`}
           aria-label={t.toggleTheme}
         >
           {theme === 'light' ? (
