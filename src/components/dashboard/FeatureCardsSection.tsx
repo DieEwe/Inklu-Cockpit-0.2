@@ -47,43 +47,57 @@ export const FeatureCardsSection = () => {
     }
   ];
   
+  // Get feature card translations
+  const featureCardTitles = {
+    jobPostings: language === 'en' ? "Job Postings via Inklu-Connect" : "Stellenausschreibungen über Inklu-Connect",
+    jobPostingsDesc: language === 'en' ? "Create inclusive job postings and reach diverse talent pools with our specialized platform." : "Erstellen Sie inklusive Stellenausschreibungen und erreichen Sie vielfältige Talentpools mit unserer spezialisierten Plattform.",
+    assistant: language === 'en' ? "Digital Assistant (Inklu-Chatbot)" : "Digitaler Assistent (Inklu-Chatbot)",
+    assistantDesc: language === 'en' ? "AI-powered assistance for answering inclusion and accessibility questions instantly." : "KI-gestützte Unterstützung zur sofortigen Beantwortung von Inklusions- und Barrierefreiheitsfragen.",
+    learningModules: language === 'en' ? "Learning & Content Modules" : "Lern- & Inhaltsmodule",
+    learningModulesDesc: language === 'en' ? "Specialized learning resources covering various aspects of inclusion and accessibility." : "Spezialisierte Lernressourcen, die verschiedene Aspekte der Inklusion und Barrierefreiheit abdecken.",
+    accessibilityTools: language === 'en' ? "Accessibility & Inclusion Tools" : "Zugänglichkeits- & Inklusionswerkzeuge",
+    accessibilityToolsDesc: language === 'en' ? "Discover and implement tools that enhance workplace accessibility for all." : "Entdecken und implementieren Sie Werkzeuge, die die Barrierefreiheit am Arbeitsplatz für alle verbessern.",
+    externalTraining: language === 'en' ? "External Training Modules / Courses" : "Externe Schulungsmodule / Kurse",
+    externalTrainingDesc: language === 'en' ? "Access specialized external training resources for advanced learning opportunities." : "Greifen Sie auf spezialisierte externe Schulungsressourcen für fortgeschrittene Lernmöglichkeiten zu."
+  };
+  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       <FeatureCard
-        title={t.inclusiveJobPostings}
-        description={t.inclusiveJobPostingsDesc}
+        title={featureCardTitles.jobPostings}
+        description={featureCardTitles.jobPostingsDesc}
         icon="📋"
       >
         <JobPostingCard />
       </FeatureCard>
       
       <FeatureCard
-        title={t.inkluAssistant}
-        description={t.inkluAssistantDesc}
+        title={featureCardTitles.assistant}
+        description={featureCardTitles.assistantDesc}
         icon="💬"
       >
         <ChatbotCard />
       </FeatureCard>
       
       <FeatureCard
-        title={t.learningModules}
-        description={t.learningModulesDesc}
+        title={featureCardTitles.learningModules}
+        description={featureCardTitles.learningModulesDesc}
         icon="📚"
       >
         <LearningModulesCard />
       </FeatureCard>
       
       <FeatureCard
-        title={t.accessibilityTools}
-        description={t.accessibilityToolsDesc}
+        title={featureCardTitles.accessibilityTools}
+        description={featureCardTitles.accessibilityToolsDesc}
         icon="♿"
       >
         <AccessibilityToolsCard tools={accessibilityTools} />
       </FeatureCard>
       
       <FeatureCard
-        title={t.externalTraining}
-        description={t.externalTrainingDesc}
+        title={featureCardTitles.externalTraining}
+        description={featureCardTitles.externalTrainingDesc}
         icon="🎓"
       >
         <ExternalTrainingCard trainings={trainings} />

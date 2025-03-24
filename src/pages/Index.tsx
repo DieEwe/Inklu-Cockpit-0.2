@@ -59,6 +59,9 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
+  // Additional translations
+  const eventsTitle = language === 'en' ? "Events & Meetups" : "Veranstaltungen & Treffen";
+  
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       <div ref={headerRef} className="container mx-auto px-4 sm:px-6 pt-4">
@@ -128,7 +131,7 @@ const Index = () => {
           <div className="mt-12 space-y-6 animate-fade-in">
             <h2 className="text-2xl font-semibold text-center mb-6">
               <span className="bg-gradient-to-r from-inklu-blue to-inklu-purple bg-clip-text text-transparent">
-                {t.events}
+                {eventsTitle}
               </span>
             </h2>
             <EventsFeed />
