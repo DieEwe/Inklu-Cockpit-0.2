@@ -17,7 +17,7 @@ export const Header = ({ floating = false }: HeaderProps) => {
         <div className="flex items-center space-x-2">
           <div className="flex items-center">
             <img 
-              src="public\InkluConnectLogoText.png" 
+              src="\InkluConnectLogoText.png" 
               alt="Inklu-Connect Logo" 
               className="h-10 w-auto" // Adjust size as needed
             />
