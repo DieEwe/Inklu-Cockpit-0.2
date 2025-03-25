@@ -22,7 +22,7 @@ export const StrategySection = () => {
             name: item.category,
             value: item.value
           }))}
-          colors={["#155E95", "#6A80B9", "#F6C794", "#d1d5db"]}
+          colors={["#155E95", "#6A80B9", "#98D2C0", "#d1d5db"]}
         />
       </DashboardCard>
       
@@ -41,7 +41,7 @@ export const StrategySection = () => {
       >
         <PieChart 
           data={strategyData.personalGoals.data}
-          colors={["#155E95", "#6A80B9", "#F6C794"]}
+          colors={["#155E95", "#6A80B9", "#98D2C0"]}
         />
         <div className="mt-4 text-center">
           <div className="text-sm text-muted-foreground">{t.overallScore}</div>

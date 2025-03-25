@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -8,6 +7,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}"
   ],
   prefix: "",
   theme: {
@@ -60,7 +60,7 @@ export default {
         inklu: {
           blue: '#155E95',
           purple: '#6A80B9',
-          peach: '#F6C794',
+          peach: '#98D2C0',
         },
         sidebar: {
           DEFAULT: 'hsl(var(--sidebar-background))',
@@ -71,6 +71,13 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
+        },
+        custom: {
+          wine: '#7C444F',
+          rose: '#9F5255',
+          coral: '#E16A54',
+          peach: '#F39E60',
+          sand: '#F2AE66'
         }
       },
       borderRadius: {

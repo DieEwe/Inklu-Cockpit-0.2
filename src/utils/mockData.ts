@@ -1,4 +1,3 @@
-
 // Mock data for the dashboard
 
 // Communication
@@ -162,13 +161,13 @@ export const accessibilityData = {
 export const featureCardsData = [
   // First Row
   {
-    title: "Job Postings via Inklu-Connect",
+    title: "Job Postings",
     description: "Create inclusive job postings and reach diverse talent pools with our specialized platform.",
     metric: "28",
     metricLabel: "Active Postings"
   },
   {
-    title: "Digital Assistant (Inklu-Chatbot)",
+    title: "Min (Inklu-Chatbot)",
     description: "AI-powered assistance for answering inclusion and accessibility questions instantly.",
     metric: "245",
     metricLabel: "Daily Interactions"
@@ -203,7 +202,7 @@ export const featureCardsData = [
 // Translation data
 export const translations = {
   en: {
-    dashboardTitle: "Inclusion Analytics Dashboard",
+    dashboardTitle: "Inklu-Cockpit",
     communication: "Communication",
     process: "Process",
     strategy: "Strategy",
@@ -228,20 +227,24 @@ export const translations = {
     inkluScore: "Score",
     inkluScoreTitle: "Inklu-Score™",
     inkluScoreDescription: "Combined score based on all five category metrics, representing overall inclusion performance.",
-    inkluConnectTools: "Inklu-Connect Tools",
+    inkluConnectTools: "Inklu-Connect Services",
     toggleLanguage: "Toggle language",
     toggleTheme: "Toggle theme",
     featureCards: {
-      jobPostings: "Job Postings via Inklu-Connect",
-      digitalAssistant: "Digital Assistant (Inklu-Chatbot)",
+      jobPostings: "Job Postings",
+      digitalAssistant: "Min (Inklu-Chatbot)",
       learningContent: "Learning & Content Modules",
       events: "Local & Online Events",
       accessibilityTools: "Accessibility & Inclusion Tools",
       externalTraining: "External Training Modules / Courses"
-    }
+    },
+    online: "Online",
+    hybrid: "Hybrid",
+    local: "In-person",
+    attending: "attendees"
   },
   de: {
-    dashboardTitle: "Inklusions-Analyse-Dashboard",
+    dashboardTitle: "Inklu-Cockpit",
     communication: "Kommunikation",
     process: "Prozess",
     strategy: "Strategie",
@@ -266,16 +269,101 @@ export const translations = {
     inkluScore: "Punktzahl",
     inkluScoreTitle: "Inklu-Score™",
     inkluScoreDescription: "Kombinierte Punktzahl basierend auf allen fünf Kategoriemetriken, die die Gesamtinklusionsleistung darstellt.",
-    inkluConnectTools: "Inklu-Connect Werkzeuge",
+    inkluConnectTools: "Inklu-Connect Services",
     toggleLanguage: "Sprache wechseln",
     toggleTheme: "Thema wechseln",
     featureCards: {
       jobPostings: "Stellenausschreibungen über Inklu-Connect",
-      digitalAssistant: "Digitaler Assistent (Inklu-Chatbot)",
+      digitalAssistant: "Min (Inklu-Chatbot)",
       learningContent: "Lern- & Inhaltsmodule",
       events: "Lokale & Online-Veranstaltungen",
       accessibilityTools: "Zugänglichkeits- & Inklusionswerkzeuge",
       externalTraining: "Externe Schulungsmodule / Kurse"
-    }
+    },
+    online: "Online",
+    hybrid: "Hybrid",
+    local: "Vor Ort",
+    attending: "Teilnehmer"
   }
 };
+
+export const accessibilityOffers = [
+  {
+    id: "a1",
+    title: {
+      en: "Screen Reader Training",
+      de: "Screenreader-Schulung"
+    },
+    description: {
+      en: "Learn how to optimize digital content for screen readers",
+      de: "Lernen Sie, wie Sie digitale Inhalte für Screenreader optimieren"
+    },
+    boostCategories: ["accessibility"],
+    icon: "👁️"
+  },
+  {
+    id: "a2",
+    title: {
+      en: "Inclusive Design Workshop",
+      de: "Workshop für inklusives Design"
+    },
+    description: {
+      en: "Create interfaces accessible to users of all abilities",
+      de: "Erstellen Sie Benutzeroberflächen, die für Benutzer aller Fähigkeiten zugänglich sind"
+    },
+    boostCategories: ["accessibility", "process"],
+    icon: "🎨"
+  },
+  {
+    id: "a3",
+    title: {
+      en: "Physical Workspace Assessment",
+      de: "Bewertung des physischen Arbeitsplatzes"
+    },
+    description: {
+      en: "Evaluate and improve physical accessibility in your workspace",
+      de: "Bewerten und verbessern Sie die physische Zugänglichkeit an Ihrem Arbeitsplatz"
+    },
+    boostCategories: ["accessibility", "strategy"],
+    icon: "🏢"
+  },
+  {
+    id: "a4",
+    title: {
+      en: "Inclusion Communication Training",
+      de: "Schulung zur inklusiven Kommunikation"
+    },
+    description: {
+      en: "Learn inclusive language and communication practices",
+      de: "Erlernen Sie inklusive Sprache und Kommunikationspraktiken"
+    },
+    boostCategories: ["communication", "leadership"],
+    icon: "💬"
+  },
+  {
+    id: "a5",
+    title: {
+      en: "Assistive Technology Integration",
+      de: "Integration von Hilfstechnologien"
+    },
+    description: {
+      en: "Implement assistive technologies in your organization",
+      de: "Implementieren Sie Hilfstechnologien in Ihrer Organisation"
+    },
+    boostCategories: ["accessibility", "process", "strategy"],
+    icon: "🖥️"
+  },
+  {
+    id: "a6",
+    title: {
+      en: "Disability Awareness Program",
+      de: "Programm zur Sensibilisierung für Behinderungen"
+    },
+    description: {
+      en: "Raise awareness and understanding of different disabilities",
+      de: "Fördern Sie das Bewusstsein und Verständnis für verschiedene Behinderungen"
+    },
+    boostCategories: ["leadership", "communication"],
+    icon: "🤝"
+  }
+];

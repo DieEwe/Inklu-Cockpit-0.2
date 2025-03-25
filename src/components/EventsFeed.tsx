@@ -16,7 +16,6 @@ const mockEvents = [
     attendees: 28,
     image: "🏢",
     description: "Learn essential strategies for creating an inclusive workplace environment.",
-    tags: ["Workshop", "Inclusion", "Team Building"]
   },
   {
     id: 2,
@@ -28,7 +27,6 @@ const mockEvents = [
     attendees: 64,
     image: "🖥️",
     description: "Discover how to make your digital products accessible to everyone.",
-    tags: ["Webinar", "Accessibility", "Digital"]
   },
   {
     id: 3,
@@ -40,7 +38,6 @@ const mockEvents = [
     attendees: 43,
     image: "👥",
     description: "Join our panel discussion on effective and inclusive hiring practices.",
-    tags: ["Panel", "Hiring", "Diversity"]
   },
   {
     id: 4,
@@ -52,7 +49,6 @@ const mockEvents = [
     attendees: 92,
     image: "🧠",
     description: "Exploring the benefits and challenges of neurodiversity in tech teams.",
-    tags: ["Tech", "Neurodiversity", "Teams"]
   },
   {
     id: 5,
@@ -64,7 +60,6 @@ const mockEvents = [
     attendees: 18,
     image: "🚀",
     description: "Full-day training for managers on inclusive leadership practices.",
-    tags: ["Training", "Leadership", "Management"]
   },
 ];
 
@@ -79,7 +74,6 @@ interface Event {
   attendees: number;
   image: string;
   description: string;
-  tags: string[];
 }
 
 export const EventsFeed = () => {
@@ -159,19 +153,8 @@ export const EventsFeed = () => {
                   <span>{event.location}</span>
                 </div>
                 
-                <div className="text-sm text-muted-foreground flex items-center gap-1">
-                  <Users className="h-3.5 w-3.5" />
-                  <span>{event.attendees} {t.attending}</span>
-                </div>
               </div>
-              
-              <div className="flex flex-wrap gap-1 mt-3">
-                {event.tags.map((tag, index) => (
-                  <div key={index} className="text-xs px-2 py-1 rounded-full bg-muted flex items-center">
-                    <Hash className="h-2.5 w-2.5 mr-1" />{tag}
-                  </div>
-                ))}
-              </div>
+            
             </div>
           </div>
         </div>

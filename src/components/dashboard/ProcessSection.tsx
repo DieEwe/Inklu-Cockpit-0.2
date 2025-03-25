@@ -43,7 +43,7 @@ export const ProcessSection = () => {
           data={processData.funding.data}
           dataKey="amount"
           nameKey="month"
-          colors={["#6A80B9", "#F6C794"]}
+          colors={["#6A80B9", "#98D2C0"]}
         />
         <div className="mt-4 text-center">
           <div className="text-sm text-muted-foreground">{t.overallScore}</div>

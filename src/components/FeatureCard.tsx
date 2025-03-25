@@ -1,43 +1,28 @@
-
-import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import React from "react";
 
 interface FeatureCardProps {
   title: string;
-  icon: ReactNode;
-  description: string;
-  metric?: string;
-  metricLabel?: string;
-  children?: ReactNode;
+  description?: string;
+  children: React.ReactNode;
   className?: string;
-  fullWidth?: boolean;
 }
 
 export const FeatureCard = ({ 
   title, 
-  icon, 
   description, 
-  metric, 
-  metricLabel,
-  children,
-  className = "",
-  fullWidth = false
+  children, 
+  className 
 }: FeatureCardProps) => {
   return (
-    <div className={`inklu-card group min-h-[420px] ${fullWidth ? 'col-span-full' : ''} ${className}`}>
-      <div className="flex items-start justify-between">
-        <div className="rounded-full p-2 bg-primary/10 text-primary">
-          {icon}
-        </div>
-        {metric && (
-          <div className="text-right">
-            <p className="text-2xl font-bold">{metric}</p>
-            <p className="text-xs text-muted-foreground">{metricLabel}</p>
-          </div>
+    <div className={cn("rounded-lg border bg-card p-4 shadow-sm", className)}>
+      <div className="mb-4">
+        <h3 className="text-lg font-medium">{title}</h3>
+        {description && (
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
         )}
       </div>
-      <h3 className="mt-4 text-lg font-medium">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-      {children && <div className="mt-4 flex-grow">{children}</div>}
+      <div>{children}</div>
     </div>
   );
 };

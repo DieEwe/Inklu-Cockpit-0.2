@@ -35,7 +35,7 @@ export const CommunicationSection = () => {
       >
         <PieChart 
           data={communicationData.intranet.data}
-          colors={["#155E95", "#6A80B9", "#F6C794"]}
+          colors={["#155E95", "#6A80B9", "#98D2C0"]}
         />
       </DashboardCard>
       
@@ -45,7 +45,7 @@ export const CommunicationSection = () => {
       >
         <PieChart 
           data={communicationData.certifications.data}
-          colors={["#155E95", "#6A80B9", "#F6C794"]}
+          colors={["#155E95", "#6A80B9", "#98D2C0"]}
         />
         <div className="mt-4 text-center">
           <div className="text-sm text-muted-foreground">{t.overallScore}</div>

@@ -1,4 +1,3 @@
-
 import { Moon, Sun, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
@@ -16,36 +15,54 @@ export const Header = ({ floating = false }: HeaderProps) => {
     <header className={`flex items-center justify-between ${floating ? 'px-2 py-2' : 'py-4 px-6 mb-4 animate-fade-in'}`}>
       {!floating && (
         <div className="flex items-center space-x-2">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-inklu-blue via-inklu-purple to-inklu-peach bg-clip-text text-transparent">
-            Inklu-Cockpit
-          </h1>
-          <div className="flex h-6 items-center space-x-1 rounded-full bg-muted px-2 text-xs font-medium">
-            <span>{new Date().toLocaleDateString(language === 'en' ? 'en-US' : 'de-DE')}</span>
+          <div className="flex items-center">
+            <img 
+              src="public\InkluConnectLogoText.png" 
+              alt="Inklu-Connect Logo" 
+              className="h-10 w-auto" // Adjust size as needed
+            />
+            {/* Optional: Keep text next to logo */}
           </div>
         </div>
       )}
       
-      <div className={`flex items-center ${floating ? 'space-x-1 flex-col space-y-2' : 'space-x-2'}`}>
+      <div className={`flex items-center ${floating ? 'space-x-1 flex-col space-y-2' : 'space-x-3'}`}>
         <Button 
-          variant={floating ? "outline" : "outline"}
-          size={floating ? "sm" : "icon"} 
+          variant="ghost"
+          size="sm"
           onClick={toggleLanguage}
-          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full bg-gradient-to-r from-inklu-blue/10 to-inklu-purple/10 hover:from-inklu-blue/20 hover:to-inklu-purple/20'}`}
+          className={`
+            ${floating ? 'w-8 h-8 p-0' : 'px-3 h-9'} 
+            rounded-full 
+            hover:bg-custom-wine/10 
+            hover:text-custom-wine 
+            dark:hover:bg-custom-peach/10 
+            dark:hover:text-custom-peach
+            transition-colors
+          `}
           aria-label={t.toggleLanguage}
         >
           <Languages className="h-4 w-4" />
           {!floating && (
-            <span className="ml-2 hidden sm:inline-block">
+            <span className="ml-1 text-sm font-medium">
               {language === 'en' ? 'EN' : 'DE'}
             </span>
           )}
         </Button>
         
         <Button 
-          variant={floating ? "outline" : "outline"}
-          size={floating ? "sm" : "icon"} 
+          variant="ghost"
+          size="sm"
           onClick={toggleTheme}
-          className={`${floating ? 'w-8 h-8 p-0' : 'rounded-full bg-gradient-to-r from-inklu-purple/10 to-inklu-peach/10 hover:from-inklu-purple/20 hover:to-inklu-peach/20'}`}
+          className={`
+            ${floating ? 'w-8 h-8 p-0' : 'px-3 h-9'} 
+            rounded-full 
+            hover:bg-custom-wine/10 
+            hover:text-custom-wine 
+            dark:hover:bg-custom-peach/10 
+            dark:hover:text-custom-peach
+            transition-colors
+          `}
           aria-label={t.toggleTheme}
         >
           {theme === 'light' ? (

@@ -1,4 +1,3 @@
-
 import { useTheme } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { translations } from "@/utils/mockData";
@@ -35,11 +34,11 @@ const Index = () => {
   
   // Progress indicators data
   const categoryScores = [
-    { id: "communication", score: Math.round(communicationData.overallScore), color: "#D946EF", name: t.communication }, // Pink
-    { id: "process", score: Math.round(processData.overallScore), color: "#9b87f5", name: t.process }, // Purple
-    { id: "strategy", score: Math.round(strategyData.overallScore), color: "#0EA5E9", name: t.strategy }, // Blue
-    { id: "leadership", score: Math.round(leadershipData.overallScore), color: "#10B981", name: t.leadership }, // Green
-    { id: "accessibility", score: Math.round(accessibilityData.overallScore), color: "#F97316", name: t.accessibility }, // Orange
+    { id: "communication", score: Math.round(communicationData.overallScore), color: "#7C444F", name: t.communication }, // Wine
+    { id: "process", score: Math.round(processData.overallScore), color: "#9F5255", name: t.process }, // Rose
+    { id: "strategy", score: Math.round(strategyData.overallScore), color: "#E16A54", name: t.strategy }, // Coral
+    { id: "leadership", score: Math.round(leadershipData.overallScore), color: "#F39E60", name: t.leadership }, // Peach
+    { id: "accessibility", score: Math.round(accessibilityData.overallScore), color: "#F2AE66", name: t.accessibility }, // Sand
   ];
   
   // Extract scores and colors for InkluScore
@@ -118,6 +117,7 @@ const Index = () => {
             </div>
           </div>
           
+          {/* Inklu-Connect Tools Section - KEEP THIS ONE */}
           <div className="mt-12 space-y-6 animate-fade-in">
             <h2 className="text-2xl font-semibold text-center mb-6">
               <span className="bg-gradient-to-r from-inklu-blue to-inklu-purple bg-clip-text text-transparent">
@@ -127,14 +127,18 @@ const Index = () => {
             <FeatureCardsSection />
           </div>
           
-          {/* Events Feed */}
+
+
+          {/* More Section */}
           <div className="mt-12 space-y-6 animate-fade-in">
             <h2 className="text-2xl font-semibold text-center mb-6">
               <span className="bg-gradient-to-r from-inklu-blue to-inklu-purple bg-clip-text text-transparent">
-                {eventsTitle}
+                {language === 'en' ? "More" : "Mehr"}
               </span>
             </h2>
-            <EventsFeed />
+            <div className="space-y-8">
+              <FeatureCardsSection showMore />
+            </div>
           </div>
         </main>
       </div>

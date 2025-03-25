@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Send, Smile, Heart, MessageCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -20,8 +19,8 @@ export const ChatbotCard = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       text: language === 'en' 
-        ? "Hello! I'm Inklu-Bot, your friendly assistant! How can I help you today? 💫" 
-        : "Hallo! Ich bin Inklu-Bot, dein freundlicher Assistent! Wie kann ich dir heute helfen? 💫",
+        ? "Hello! I'm Min, your friendly assistant! How can I help you today? 💫" 
+        : "Hallo! Ich bin Min, dein freundlicher Assistent! Wie kann ich dir heute helfen? 💫",
       isBot: true,
       timestamp: new Date()
     }
@@ -70,7 +69,7 @@ export const ChatbotCard = () => {
   };
 
   return (
-    <div className="flex flex-col h-64">
+    <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
       <div className="flex-1 overflow-y-auto mb-3 space-y-3">
         {messages.map((message, index) => (
           <div 

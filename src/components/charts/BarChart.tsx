@@ -14,7 +14,7 @@ export const BarChart = ({
   data, 
   dataKey, 
   nameKey,
-  colors = ["#155E95", "#6A80B9", "#F6C794"],
+  colors = ["#155E95", "#6A80B9", "#98D2C0"],
   height = 200
 }: BarChartProps) => {
   const { theme } = useTheme();

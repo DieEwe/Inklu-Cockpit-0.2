@@ -9,7 +9,7 @@ interface PieChartProps {
 
 export const PieChart = ({ 
   data, 
-  colors = ["#155E95", "#6A80B9", "#F6C794", "#b3c1d1"],
+  colors = ["#155E95", "#6A80B9", "#98D2C0", "#b3c1d1"],
   height = 200
 }: PieChartProps) => {
   return (
