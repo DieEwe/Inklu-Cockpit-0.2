@@ -1,7 +1,8 @@
 {
   "name": "vite_react_shadcn_ts",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "packageManager": "npm@9.6.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -89,5 +90,6 @@
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.15"
+
   }
 }
