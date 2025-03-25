@@ -11,15 +11,20 @@ export const Header = ({ floating = false }: HeaderProps) => {
   const { theme, language, toggleTheme, toggleLanguage } = useTheme();
   const t = translations[language];
   
+  // Logo changes based on theme
+  const logoSrc = theme === 'light' 
+    ? "/InkluConnectLogoText.png" 
+    : "/InkluConnectLogoTextDarkmode.png"; // Create this dark version of your logo
+  
   return (
     <header className={`flex items-center justify-between ${floating ? 'px-2 py-2' : 'py-4 px-6 mb-4 animate-fade-in'}`}>
       {!floating && (
         <div className="flex items-center space-x-2">
           <div className="flex items-center">
             <img 
-              src="\InkluConnectLogoText.png" 
+              src={logoSrc}
               alt="Inklu-Connect Logo" 
-              className="h-10 w-auto" // Adjust size as needed
+              className="h-10 w-auto transition-opacity duration-200" // Added transition for smoother change
             />
             {/* Optional: Keep text next to logo */}
           </div>

@@ -1,5 +1,5 @@
-
 import { ReactNode } from "react";
+import { PlusIcon } from "lucide-react"; // You'll need to install lucide-react if not already using it
 
 interface CircularProgressProps {
   percentage: number;
@@ -25,7 +25,7 @@ export const CircularProgress = ({
   
   return (
     <div 
-      className={`flex flex-col items-center justify-center ${onClick ? 'cursor-pointer hover:scale-105 transition-transform' : ''} ${active ? 'scale-110' : ''}`} 
+      className={`flex flex-col items-center justify-center ${onClick ? 'cursor-pointer transition-transform' : ''} ${active ? 'scale-110' : onClick ? 'hover:scale-105' : ''}`} 
       onClick={onClick}
     >
       <div className="relative" style={{ width: size, height: size }}>
@@ -53,6 +53,11 @@ export const CircularProgress = ({
         </svg>
         <div className="absolute inset-0 flex items-center justify-center rotate-0">
           <span className={`text-lg font-bold ${active ? 'text-primary' : ''}`}>{percentage}%</span>
+          {onClick && (
+            <div className="absolute bottom-0 right-0 text-primary/90 text-xs">
+              <PlusIcon size={12} />
+            </div>
+          )}
         </div>
       </div>
       {label && <div className={`mt-2 text-sm font-medium text-center ${active ? 'text-primary font-bold' : ''}`}>{label}</div>}
